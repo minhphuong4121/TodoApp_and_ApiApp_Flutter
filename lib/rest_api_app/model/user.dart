@@ -30,17 +30,9 @@ class User {
   }
 
   factory User.fromMap(Map<String, dynamic> e) {
-    final name = UserName(
-      title: e['name']['title'],
-      first: e['name']['first'],
-      last: e['name']['last'],
-    );
-    final dob = UserDoB(
-      age: e['dob']['age'],
-      date: DateTime.parse(e['dob']['date']),
-    );
+    final name = UserName.fromMap(e['name']);
+    final dob = UserDoB.fromMap(e['dob']);
     final location = UserLocation.fromMap(e['location']);
-
     final avatar = UserPic.fromMap(e['picture']);
 
     return User(
@@ -64,4 +56,12 @@ class UserName {
   final String? last;
 
   UserName({this.first, this.last, this.title});
+
+  factory UserName.fromMap(Map<String, dynamic> map) {
+    return UserName(
+      first: map['first'],
+      last: map['last'],
+      title: map['title'],
+    );
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/custom_todo_app/bloc/todo_bloc.dart';
 import 'package:flutter_application_1/custom_todo_app/bloc/todo_event.dart';
@@ -19,7 +21,6 @@ class _HeaderState extends State<Header> {
   @override
   void dispose() {
     textEdit.dispose();
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -73,7 +74,6 @@ class _HeaderState extends State<Header> {
             onPressed: () {
               if (header_form_key.currentState!.validate()) {
                 // If the form is valid, save in data
-
                 bloc.event.add(AddEvent(textEdit.text));
                 textEdit.clear();
               }
@@ -97,5 +97,22 @@ class _HeaderState extends State<Header> {
             ))
       ],
     );
+  }
+}
+
+class A extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var a = Paint()
+      ..strokeWidth = 5
+      ..color = Colors.black;
+
+      
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw UnimplementedError();
   }
 }

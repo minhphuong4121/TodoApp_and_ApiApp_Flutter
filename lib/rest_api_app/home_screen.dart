@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
           child: ListView.builder(
-            
               itemCount: users.length,
               itemBuilder: (context, index) {
                 final color = users[index].gender.toString() == 'male'

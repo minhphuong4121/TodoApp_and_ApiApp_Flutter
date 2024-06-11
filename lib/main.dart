@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/crypto_market/data/provider/crypto_provider.dart';
+import 'package:flutter_application_1/crypto_market/ui/home_screen.dart';
 import 'package:flutter_application_1/custom_todo_app/bloc/todo_bloc.dart';
 import 'package:flutter_application_1/custom_todo_app/db/todo_database.dart';
 import 'package:flutter_application_1/custom_todo_app/ui/main_page.dart';
@@ -29,15 +32,13 @@ class MyApp extends StatelessWidget {
           /* For API app */
           //HomeScreen(),
 
-          Scaffold(
-              appBar: AppBar(
-                title: const Center(child: Text('Todo List')),
-                backgroundColor: Colors.blue,
-              ),
-              body: Provider<TodoBloc2>(
-                create: (context) => TodoBloc2(),
-                child: const MainPage(),
-              )),
+          /* For Todo app */
+          //     Provider<TodoBloc2>(
+          //   create: (context) => TodoBloc2(),
+          //   child: const MainPage(),
+          // ),
+          ChangeNotifierProvider(
+              create: (context) => CryptoProvider(), child: HomePage()),
     );
   }
 }

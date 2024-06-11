@@ -14,7 +14,7 @@ class TodoData {
 
       /// This function will be called in the first time database is created
       onCreate: (db, version) {
-        return db.execute(TodoTableCustom.createTableQuery);
+         db.execute(TodoTableCustom.createTableQuery);
       },
 
       /// This version will use when you want to upgrade or downgrade the database

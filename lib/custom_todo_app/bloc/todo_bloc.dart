@@ -14,11 +14,10 @@ abstract class BaseBloc2 {
   BaseBloc2() {
     _eventController.stream.listen((event) {
       dispatchEvent(event);
-    }); 
+    });
   }
 
   void dispatchEvent(Event event);
-
 
   void dispose() {
     _eventController.close();
@@ -36,11 +35,12 @@ class TodoBloc2 extends BaseBloc2 {
   TodoTableCustom _todoTable = TodoTableCustom();
 
   initData() async {
-    _listTodo =  await _todoTable.getAllTodo();
+    _listTodo = await _todoTable.getAllTodo();
 
     _listTodo ??= [];
 
-    _streamController.sink.add(_listTodo);
+    // _streamController.sink.add(_listTodo);
+    _streamController.add(_listTodo);
   }
 
   _addEvent(TodoModel todo) {
@@ -50,15 +50,15 @@ class TodoBloc2 extends BaseBloc2 {
     _streamController.sink.add(_listTodo);
   }
 
-  _deleEvent(TodoModel? todo)  {
-     _todoTable.deleItem(todo);
+  _deleEvent(TodoModel? todo) {
+    _todoTable.deleItem(todo);
 
     _listTodo.remove(todo);
     _streamController.sink.add(_listTodo);
   }
 
-  _updateData(TodoModel todo)  {
-     _todoTable.updateTable(todo);
+  _updateData(TodoModel todo) {
+    _todoTable.updateTable(todo);
   }
 
   @override
@@ -71,12 +71,12 @@ class TodoBloc2 extends BaseBloc2 {
     } else if (event is DeleEvent) {
       _deleEvent(event.todo);
     } else if (event is UpdateEvent) {
-      print(event.content);
+      //print(event.content);
 
       TodoModel updatedTodo = TodoModel(id: event.id, content: event.content);
       _updateData(updatedTodo);
 
-      print('${event.id}');
+      //print('${event.id}');
       _listTodo[_listTodo.indexWhere((todo) => todo.id == event.id)] =
           updatedTodo;
 

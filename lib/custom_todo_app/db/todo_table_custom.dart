@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 class TodoTableCustom {
   static const tableName = 'todoTableCustom';
-  static var createTableQuery = '''
+  static var  createTableQuery = '''
 CREATE TABLE $tableName (
   id INTEGER PRIMARY KEY,
   content TEXT
