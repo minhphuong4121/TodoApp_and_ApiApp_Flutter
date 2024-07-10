@@ -27,10 +27,10 @@ class _ListViewBodyState extends State<ListViewBody> {
     print('list view');
     var bloc = Provider.of<TodoBloc2>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Todo List')),
-        backgroundColor: Colors.blue,
-      ),
+      // appBar: AppBar(
+      //   title: const Center(child: Text('Todo List')),
+      //   backgroundColor: Colors.blue,
+      // ),
       body: StreamBuilder<List<TodoModel>>(
         stream: bloc.stream,
         builder: (context, snapshot) {
@@ -124,18 +124,18 @@ class _ListViewBodyState extends State<ListViewBody> {
                           GestureDetector(
                             onTap: () {
                               showDialog(
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (BuildContext context) {
                                     return Center(
                                       child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 10),
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                               color: Colors.yellow),
                                           height: 200,
-
-                                          // width: 100,
-                                          // height: 100,
                                           margin: const EdgeInsets.symmetric(
                                               horizontal: 30),
                                           child: Column(
@@ -146,9 +146,9 @@ class _ListViewBodyState extends State<ListViewBody> {
                                             children: [
                                               const Text(
                                                 textAlign: TextAlign.center,
-                                                'Do you want delete this todo:',
+                                                'Do you want delete todo?',
                                                 style: TextStyle(
-                                                    fontSize: 20,
+                                                    fontSize: 17,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
@@ -159,7 +159,7 @@ class _ListViewBodyState extends State<ListViewBody> {
                                                 snapshot.data![index].content
                                                     .toString(),
                                                 style: const TextStyle(
-                                                    fontSize: 15,
+                                                    fontSize: 25,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),

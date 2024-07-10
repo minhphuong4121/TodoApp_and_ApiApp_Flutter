@@ -100,6 +100,8 @@ class _HeaderState extends State<Header> {
   }
 }
 
+
+
 class A extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -107,12 +109,15 @@ class A extends CustomPainter {
       ..strokeWidth = 5
       ..color = Colors.black;
 
+
       
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  
     // TODO: implement shouldRepaint
     throw UnimplementedError();
+    
   }
 }

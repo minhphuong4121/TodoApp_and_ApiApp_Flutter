@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/custom_todo_app/db/todo_table_custom.dart';
+import 'package:flutter_application_1/custom_todo_app/db/database/todo_table_custom.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

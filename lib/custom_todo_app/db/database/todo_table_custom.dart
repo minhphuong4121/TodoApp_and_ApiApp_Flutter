@@ -1,10 +1,10 @@
-import 'package:flutter_application_1/custom_todo_app/db/todo_database.dart';
+import 'package:flutter_application_1/custom_todo_app/db/database/todo_database.dart';
 import 'package:flutter_application_1/custom_todo_app/model/todo_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class TodoTableCustom {
   static const tableName = 'todoTableCustom';
-  static var  createTableQuery = '''
+  static var createTableQuery = '''
 CREATE TABLE $tableName (
   id INTEGER PRIMARY KEY,
   content TEXT
@@ -42,9 +42,9 @@ CREATE TABLE $tableName (
 
   Future<List<TodoModel>> getAllTodo() async {
     Database data = await TodoData.getInstance();
-    List<Map<String, dynamic>> maps = await data.query(tableName);
+    List<Map<String, dynamic>> maps = await data.query(tableName,);
 
-    List<TodoModel> list = maps.map((e) => TodoModel.fromData(e)).toList(); 
+    List<TodoModel> list = maps.map((e) => TodoModel.fromData(e)).toList();
     return list;
   }
 }

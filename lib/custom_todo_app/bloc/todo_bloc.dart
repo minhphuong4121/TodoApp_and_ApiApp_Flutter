@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/custom_todo_app/bloc/todo_event.dart';
-import 'package:flutter_application_1/custom_todo_app/db/todo_table_custom.dart';
+import 'package:flutter_application_1/custom_todo_app/db/database/todo_table_custom.dart';
 import 'package:flutter_application_1/custom_todo_app/model/todo_model.dart';
 
 abstract class BaseBloc2 {
